@@ -1,0 +1,14 @@
+-.idea
+-intellij-configurations
+	-POO-tipo-trianguloC1.run.xml (configuracion)
+-src
+	-main
+		-java
+			-ppss
+				-Triangulo (codigo)
+	-resources
+-test
+	-Java
+		-ppss
+			-Triangulo.Test (test para el codigo)
+-pom.xml
