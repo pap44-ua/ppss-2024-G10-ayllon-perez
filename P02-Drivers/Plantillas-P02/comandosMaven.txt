@@ -1,0 +1,21 @@
+RUN CONFIGURATIONS:
+
+
+- Run CineTest: 
+	-Dgroups=!parametrizado
+
+- Run FicheroTextoTest sin excluidos: 
+	<option value="-Dtest=ppss.FicheroTextoTest"/>
+              <option value="-Dgroups=!C3,!C4" />
+
+- Run DataArrayTest: 
+	-Dtest=ppss.DataArrayTest
+
+- Run Parametrizados con excepciones: 
+	-Dgroups=parametrizados &amp; excepciones
+
+- Run Parametrizados: 
+	"-Dgroups=parametrizados"
+
+- Run todos: 
+	mvn test
