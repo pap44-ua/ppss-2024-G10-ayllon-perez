@@ -13,7 +13,7 @@ class AlquilaCochesTest {
         TipoCoche tipo = TipoCoche.TURISMO;
         LocalDate inicio = LocalDate.of(2024,5,18);
         int dias = 10;
-        //Ns como hacer la tabla de pruebas de es_festivo()
+
 
     }
 }

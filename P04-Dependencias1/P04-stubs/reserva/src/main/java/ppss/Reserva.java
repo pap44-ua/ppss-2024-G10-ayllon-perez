@@ -12,14 +12,14 @@ public class Reserva {
     public void realizaReserva(String login, String password,
                                String socio, String [] isbns) throws ReservaException {
         ArrayList<String> errores = new ArrayList<>();
-        if(!compruebaPermisos(login, password, Usuario.BIBLIOTECARIO)) {
+        if(!compruebaPermisos(login, password, Usuario.BIBLIOTECARIO)) { //Dependencia
             errores.add("ERROR de permisos");
         } else {
-            IOperacionBO io = new Operacion();
+            IOperacionBO io =  FactoriaOperaciones.Create();
             try {
                 for(String isbn: isbns) {
                     try {
-                        io.operacionReserva(socio, isbn);
+                        io.operacionReserva(socio, isbn);//Dependencia
                     } catch (IsbnInvalidoException iie) {
                         errores.add("ISBN invalido" + ":" + isbn);
                     }
@@ -39,4 +39,7 @@ public class Reserva {
             throw new ReservaException(mensajeError);
         }
     }
+
+
+
 }
