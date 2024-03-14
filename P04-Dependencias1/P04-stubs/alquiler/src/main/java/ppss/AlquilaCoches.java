@@ -17,7 +17,8 @@ public class AlquilaCoches {
         float porcentaje = 0.25f;
 
         String observaciones = "";
-        IService servicio = new Servicio();
+        //IService servicio = new Servicio();
+        IService servicio = this.getServicio();
         precioDia = servicio.consultaPrecio(tipo); //Dependencia
         for (int i=0; i<ndias;i++) {
             LocalDate otroDia = inicio.plusDays((long)i);
