@@ -8,8 +8,8 @@ public class GestorLlamadas {
         return c;
     }
     public double calculaConsumo(int minutos) {
-        Calendario c = getCalendario();
-        int hora = c.getHoraActual();
+        Calendario c = getCalendario(); //Dependencia
+        int hora = c.getHoraActual(); //Dependencia
         if(hora < 8 || hora > 20) {
             return minutos * TARIFA_NOCTURNA;
         } else {
