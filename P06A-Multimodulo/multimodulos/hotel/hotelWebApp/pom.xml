@@ -9,6 +9,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <packaging>war</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>hotelDatabase</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
     <artifactId>hotelWebApp</artifactId>
 
     <build>
