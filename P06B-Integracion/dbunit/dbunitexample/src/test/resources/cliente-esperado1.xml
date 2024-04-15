@@ -6,5 +6,10 @@
               direccion="1 Main Street"
               ciudad="Anycity" />
 
-
+    <cliente id="2"
+             nombre="Paula"
+             apellido="Ayllon"
+             direccion="Calle"
+             ciudad="Cuenca" />
+   
 </dataset>
