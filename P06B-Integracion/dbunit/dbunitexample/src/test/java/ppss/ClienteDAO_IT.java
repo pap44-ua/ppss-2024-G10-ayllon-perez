@@ -145,4 +145,55 @@ public class ClienteDAO_IT {
      Assertion.assertEquals(expectedTable, actualTable);
    }
 
+   @Test
+   public void D6_delete_should_remove_John_from_cliente_when_John_is_in_table() throws Exception {
+     Cliente cliente =  new Cliente(1,"John", "Smith");
+     cliente.setDireccion("Other Street");
+     cliente.setCiudad("NewCity");
+
+     //inicializamos la BD
+     IDataSet dataSet = new FlatXmlDataFileLoader().load("/cliente-esperado2.xml");
+     databaseTester.setDataSet(dataSet);
+     databaseTester.onSetup();
+
+     //invocamos a la SUT
+     Assertions.assertThrows(SQLException.class,()->clienteDAO.update(cliente));
+
+     //recuperamos los datos de la BD después de invocar al SUT
+     IDataSet databaseDataSet = connection.createDataSet();
+     ITable actualTable = databaseDataSet.getTable("cliente");
+
+     //creamos el dataset con el resultado esperado
+     IDataSet expectedDataSet = new FlatXmlDataFileLoader().load("/cliente-init1.xml");
+     ITable expectedTable = expectedDataSet.getTable("cliente");
+
+     Assertion.assertEquals(expectedTable, actualTable);
+   }
+
+   @Test
+   public void D5_delete_should_remove_John_from_cliente_when_John_is_in_table() throws Exception {
+     Cliente cliente = new Cliente(1,"John", "Smith");
+     cliente.setDireccion("1 Main Street");
+     cliente.setCiudad("Anycity");
+
+
+     //inicializamos la BD
+     IDataSet dataSet = new FlatXmlDataFileLoader().load("/cliente-esperado3.xml");
+     databaseTester.setDataSet(dataSet);
+     databaseTester.onSetup();
+
+     //invocamos a la SUT
+     Assertions.assertThrows(SQLException.class,()->clienteDAO.retrieve(cliente.getId()));
+
+     //recuperamos los datos de la BD después de invocar al SUT
+     IDataSet databaseDataSet = connection.createDataSet();
+     ITable actualTable = databaseDataSet.getTable("cliente");
+
+     //creamos el dataset con el resultado esperado
+     IDataSet expectedDataSet = new FlatXmlDataFileLoader().load("/cliente-init1.xml");
+     ITable expectedTable = expectedDataSet.getTable("cliente");
+
+     Assertion.assertEquals(expectedTable, actualTable);
+   }
+
 }
